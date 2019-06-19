@@ -2,17 +2,17 @@ package stepdefinitions;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import junit.framework.Assert;
+import managers.FileReaderManager;
 import managers.PageObjectManager;
+import managers.WebDriverManager;
 import pageObjects.LeadGenPage;
 
 public class Simple_SmokeTest_LeadGen_Steps {
@@ -20,21 +20,21 @@ public class Simple_SmokeTest_LeadGen_Steps {
 	
 	LeadGenPage leadPage;
 	PageObjectManager pageObjectManager;
-	
+	WebDriverManager webDriverManager;
 	
 	@Given("^User navigate to LeadGen in Prod$")
 	public void user_navigate_to_LeadGen_in_Prod() throws Throwable {
-		String lead_gen_url = "https://leadgen.cloudsna.com/?cid=MKT353204&eid=MKT395342&encryptedSnaid=&snaid=&step=start";
-		String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver";
 		
-		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get(lead_gen_url);
-		
+		webDriverManager = new WebDriverManager();
+		driver = webDriverManager.getDriver();
 		pageObjectManager = new PageObjectManager(driver);
 		leadPage = new LeadGenPage(driver);
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
+		driver.get(FileReaderManager.getInstance().getConfigReader().getLeadGenUrl());		
+		
+		
 	}
 
 	@When("^User enter Email$")
