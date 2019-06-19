@@ -15,6 +15,7 @@ public class WebDriverManager {
 	private static DriverType driverType;
 	private static EnvironmentType environmentType;
 	private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
+	private static final String FIREFOX_DRIVER_PROPERTY = "webdriver.chrome.driver";
 	 
 	public WebDriverManager() {
 		driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
@@ -46,13 +47,17 @@ public class WebDriverManager {
 	private WebDriver createLocalDriver() {
 		switch (driverType) {     
 		    case FIREFOX :
-		    	System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getFirefoxDriverPath());
+		    	String firefoxDriverPath = System.getProperty("user.dir") + FileReaderManager.getInstance().getConfigReader().getFirefoxDriverPath();				
+		    	System.setProperty(FIREFOX_DRIVER_PROPERTY, firefoxDriverPath);
 		    	driver = new FirefoxDriver();
 		    	break;
-		    case CHROME : 
-		        System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getChromeDriverPath());
+		    	
+		    case CHROME :
+		    	String chromeDriverPath = System.getProperty("user.dir") + FileReaderManager.getInstance().getConfigReader().getChromeDriverPath();				
+		        System.setProperty(CHROME_DRIVER_PROPERTY, chromeDriverPath);
 		        driver = new ChromeDriver();
 		        break;
+		        
 		    case INTERNETEXPLORER : 
 		        driver = new InternetExplorerDriver();
 		        break;
@@ -67,6 +72,9 @@ public class WebDriverManager {
 		 
 	public void closeDriver() {
 		driver.close();
+	}
+	
+	public void quitDriver() {
 		driver.quit();
 	}
 }

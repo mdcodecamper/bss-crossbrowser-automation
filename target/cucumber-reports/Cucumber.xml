@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="11.461456">
+<testcase classname="I want to perform a simple smoke test for leadgen in prod" name="As a user i want to test leadGen so that i can get thank you page after entering Email" time="11.461456">
+<system-out><![CDATA[And User navigate to LeadGen in Prod........................................passed
+When User enter Email.......................................................passed
+And User Click on Submit button.............................................passed
+Then User verify that thankyou page is displayed............................passed
+And User close the browser..................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

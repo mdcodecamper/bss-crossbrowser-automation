@@ -1,0 +1,116 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2258375915,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.BeforeSteps()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "As a user i want to test leadGen so that i can get thank you page after entering Email",
+        "description": "",
+        "id": "i-want-to-perform-a-simple-smoke-test-for-leadgen-in-prod;as-a-user-i-want-to-test-leadgen-so-that-i-can-get-thank-you-page-after-entering-email",
+        "after": [
+          {
+            "result": {
+              "duration": 77162933,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.AfterSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1409130793,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 6,
+                "value": "#    Given user count all record from database for a specific email"
+              }
+            ],
+            "line": 7,
+            "name": "User navigate to LeadGen in Prod",
+            "match": {
+              "location": "Simple_SmokeTest_LeadGen_Steps.user_navigate_to_LeadGen_in_Prod()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3331659880,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User enter Email",
+            "match": {
+              "location": "Simple_SmokeTest_LeadGen_Steps.user_enter_Email()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2139320987,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User Click on Submit button",
+            "match": {
+              "location": "Simple_SmokeTest_LeadGen_Steps.user_Click_on_Submit_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2036960705,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User verify that thankyou page is displayed",
+            "match": {
+              "location": "Simple_SmokeTest_LeadGen_Steps.user_verify_that_thankyou_page_is_displayed()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 208845126,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User close the browser",
+            "match": {
+              "location": "Simple_SmokeTest_LeadGen_Steps.user_close_the_browser()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "I want to perform a simple smoke test for leadgen in prod",
+    "description": "",
+    "id": "i-want-to-perform-a-simple-smoke-test-for-leadgen-in-prod",
+    "keyword": "Feature",
+    "uri": "Simple_Smoke_Test_LeadGen.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@Simple_SmokeTest_LeadGen"
+      }
+    ]
+  }
+]

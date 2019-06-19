@@ -7,10 +7,14 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import junit.framework.Assert;
+import managers.FileReaderManager;
 
 public class LeadGenPage {
 
+	WebDriver driver;
+	
 	public LeadGenPage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -28,6 +32,11 @@ public class LeadGenPage {
 	
 	
 	// Action Methods
+	
+	public void navigate_to_leadGenPage() {
+		driver.get(FileReaderManager.getInstance().getConfigReader().getLeadGenUrl());
+	}
+	
 	public void clear_txtbx() {
 		txtbx_Email.clear();
 	}

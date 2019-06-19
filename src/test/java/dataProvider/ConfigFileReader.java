@@ -12,7 +12,7 @@ import enums.EnvironmentType;
 public class ConfigFileReader {
 	
 	private Properties properties;
-	 private final String propertyFilePath= "configs/Configuration.properties";	 
+	private final String propertyFilePath= "configs/Configuration.properties";
 	 
 	 public ConfigFileReader(){
 		 BufferedReader reader;
@@ -90,6 +90,11 @@ public class ConfigFileReader {
 		 if(windowSize != null) 
 			 return Boolean.valueOf(windowSize);
 		 return true;
+	}
+	
+	public String getReportConfigPath(){
+		String reportConfigPath = System.getProperty("user.dir") + properties.getProperty("reportConfigPath");
+		return reportConfigPath;		
 	}
 
 }

@@ -14,7 +14,7 @@ public class PageObjectManager {
 		 this.driver = driver;
 	}
 	
-	public LeadGenPage getHomePage(){ 
+	public LeadGenPage getLeadGenPage(){ 
 		 return (leadPage == null) ? leadPage = new LeadGenPage(driver) : leadPage; 
 	}
 	
